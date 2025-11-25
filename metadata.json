@@ -1,0 +1,5 @@
+{
+  "name": "CareerCrafter AI",
+  "description": "An intelligent Resume and ATS optimization tool that rewrites resumes, generates cover letters, and prepares interview questions based on job descriptions using Gemini 2.5.",
+  "requestFramePermissions": []
+}
