@@ -37,7 +37,7 @@ export interface OptimizedResume {
   };
   experience: ExperienceItem[];
   projects: ProjectItem[];
-  educations: EducationItem[];
+  education: EducationItem[];
   certifications: string[];
 }
 

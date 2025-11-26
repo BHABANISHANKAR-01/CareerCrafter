@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { UserInput, OptimizationResult, AppStatus } from './types';
 import { generateOptimization } from './services/geminiService';
@@ -35,7 +34,7 @@ const App: React.FC = () => {
   const handleReset = () => {
     setStatus(AppStatus.IDLE);
     setResult(null);
-    // Optional: Keep input or clear them. Keeping them is usually better UX.
+    // Optional: Keep inputs or clear them. Keeping them is usually better UX.
   };
 
   return (
@@ -76,9 +75,9 @@ const App: React.FC = () => {
           <ResultsView result={result} onBack={handleReset} />
         )}
       </main>
-
+      
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white mt-20 text-center text-sm text-slate-500">
+      <footer className="border-t border-slate-200 bg-white mt-auto">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} CareerCrafter AI. Built for success.</p>
         </div>

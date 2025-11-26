@@ -1,8 +1,8 @@
 
-import { GoogleGenerativeAI, Type, Schema, Part } from "@google/generative-ai";
+import { GoogleGenAI, Type, Schema, Part } from "@google/genai";
 import { UserInput, OptimizationResult } from "../types";
 
-const genAI = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
+const genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const responseSchema: Schema = {
   type: Type.OBJECT,
@@ -67,7 +67,7 @@ const responseSchema: Schema = {
         },
         certifications: { type: Type.ARRAY, items: { type: Type.STRING } },
       },
-      required: ["summary", "skills", "experience", "projects"],
+      required: ["summary", "skills", "experience"],
     },
     atsAnalysis: {
       type: Type.OBJECT,
@@ -101,20 +101,17 @@ export const generateOptimization = async (input: UserInput): Promise<Optimizati
     const model = "gemini-2.5-flash";
     
     const basePrompt = `
-    You are an expert HR Manager and ATS Optimization Specialist.
-    
-    Task: Analyze the Candidate's Resume against the Job Description.
-    1. Rewrite the resume to be fully ATS optimized, using STAR format for bullet points.
-    2. Analyze the match and provide an ATS score (0-100).
-    3. Write a tailored, persuasive cover letter.
-    4. Create 10 interview questions with sample STAR-formatted answers tailored to this specific application.
-    
-    Important Rules:
-    - Output MUST be valid JSON following the schema provided
-    - Preserve all original factual information from the resume
-    - ATS-optimize by using keywords from the job description
-    - Do NOT use placeholders like [Your Name] if the information exists in the resume.
-    - If personal info is missing, leave it as an empty string or generic placeholder only if absolutely necessary.
+      You are an expert HR Manager and ATS Optimization Specialist.
+      
+      Task: Analyze the Candidate's Resume against the Job Description.
+      1. Rewrite the resume to be fully ATS optimized, using STAR format for bullet points.
+      2. Analyze the match and provide an ATS score (0-100).
+      3. Write a tailored, persuasive cover letter.
+      4. Create 10 interview questions with sample STAR-formatted answers tailored to this specific application.
+
+      Ensure the output strictly follows the JSON schema provided.
+      Do NOT use placeholders like [Your Name] if the information exists in the resume. 
+      If personal info is missing, leave it as an empty string or generic placeholder only if absolutely necessary.
     `;
 
     const parts: Part[] = [];
@@ -160,4 +157,4 @@ export const generateOptimization = async (input: UserInput): Promise<Optimizati
     console.error("Error generating optimization:", error);
     throw error;
   }
-}
+};

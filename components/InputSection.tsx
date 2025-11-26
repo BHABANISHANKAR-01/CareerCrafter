@@ -53,7 +53,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ input, setInput, onG
     <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
       <div className="text-center mb-10">
         <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl mb-4">
-          <span className="text-blue-600">Optimize</span> Your Application <span className="text-blue-600">Instantly</span>
+          Optimize Your Application <span className="text-blue-600">Instantly</span>
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Upload your resume and the job description below. Our AI will rewrite your resume for ATS systems, 
@@ -98,7 +98,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ input, setInput, onG
                   />
                   <button 
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed border-slate-300 rounded-lg text-slate-500 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium text-sm"
+                    className="w-full flex items-center justify-center gap-2 py-3 border-2 border-dashed border-slate-300 rounded-lg text-slate-500 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium text-sm"
                   >
                     <Upload className="w-4 h-4" />
                     Upload Resume (PDF / Word)
@@ -110,7 +110,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ input, setInput, onG
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
                    <FileType className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-1 line-clamp-1 break-all px-2">
+                <h3 className="text-lg font-bold text-slate-800 mb-1 line-clamp-1 break-all px-4">
                   {input.resumeFile.name}
                 </h3>
                 <p className="text-sm text-slate-500 mb-6">Resume Uploaded Successfully</p>
@@ -174,7 +174,7 @@ export const InputSection: React.FC<InputSectionProps> = ({ input, setInput, onG
             </>
           ) : (
             <>
-              <Sparkles className="w-5 group-hover:animate-pulse" />
+              <Sparkles className="w-5 h-5 group-hover:animate-pulse" />
               <span>Generate Application Package</span>
             </>
           )}
